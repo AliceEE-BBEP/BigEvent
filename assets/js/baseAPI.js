@@ -9,7 +9,7 @@ $.ajaxPrefilter(function (opt) {
     }
   }
   opt.complete = function (res) { 
-    if (res.responseJSON.status === 1) { 
+    if (res.responseJSON.status === 1 && res.responseJSON.msg==='身份验证失败！') { 
        alert('没有权限!请重新登录');
 //删除伪造的token
       localStorage.removeItem('token');
