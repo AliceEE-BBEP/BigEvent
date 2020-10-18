@@ -71,15 +71,30 @@ $('#f1')[0].reset();
     //获取用户名和密码
     var datas = $(this).serialize();
     console.log(datas);
-    $.post('http://ajax.frontend.itheima.net/api/login', datas, function (res) { 
-// console.log(res);
-      if (res.status === 0) {
-        layui.layer.msg(res.message, function () {
-          localStorage.setItem('token',res.token)
-          window.location = 'index.html'
-        })
-      } else if (res.status ===1) { 
-        return layui.layer.msg(res.message)
+//     $.post('http://ajax.frontend.itheima.net/api/login', datas, function (res) { 
+// // console.log(res);
+//       if (res.status === 0) {
+//         layui.layer.msg(res.message, function () {
+//           localStorage.setItem('token',res.token)
+//           window.location = 'index.html'
+//         })
+//       } else if (res.status ===1) { 
+//         return layui.layer.msg(res.message)
+//       }
+//     })
+    $.ajax({
+      url: '/api/login',
+      data: datas,
+      method: 'post',
+      success: function (res) { 
+        if (res.status === 0) {
+                  layui.layer.msg(res.message, function () {
+                    localStorage.setItem('token',res.token)
+                    window.location = 'index.html'
+                  })
+                } else if (res.status ===1) { 
+                  return layui.layer.msg(res.message)
+                }
       }
     })
   })
