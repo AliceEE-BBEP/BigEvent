@@ -1,5 +1,18 @@
-$(function () { 
-  $('#btnsubmit').on('click', function () { 
+$(function () {
+  layui.form.verify({
+    rePwd: function (oldPwd) {
+      var newpwds = $('[name=newPwd]').val().trim()
+      if (newpwds != oldPwd) { 
+        return '两次密码输入不一致'
+      }
+    }
+  })
+
+
+  //表单提交
+  //触发layui的表单验证机制
+  $('#btnsubmit').on('submit', function (e) { 
+    e.preventDefault();
     rePwd();
   })
 })

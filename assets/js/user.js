@@ -29,7 +29,7 @@ function getUserInfo() {
     url: '/my/userinfo',
     method: 'GET',
     success: function (res) { 
-      console.log(res.data);
+      console.log(res);
       layui.form.val('f1',res.data)
     }
   })

@@ -9,12 +9,13 @@ $.ajaxPrefilter(function (opt) {
     }
   }
   opt.complete = function (res) { 
-    if (res.responseJSON.status === 1 && res.responseJSON.msg==='身份验证失败！') { 
+    if (res.responseJSON.status === 1 && res.responseJSON.message === '身份认证失败！' ) { 
        alert('没有权限!请重新登录');
 //删除伪造的token
       localStorage.removeItem('token');
+      // console.log(11);
       //跳转至登录页面
-      window.location='login.html'
+      window.top.location='login.html'
     }
   }
 });
