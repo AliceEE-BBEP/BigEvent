@@ -2,7 +2,7 @@ $(function () {
   // 获取用户的基本信息
   getUserInfo();
   $('#tuichu').on('click', function () {
-    console.log(111);
+    // console.log(111);
     //提示用户是否确认退出
     layui.layer.confirm('确认退出登录？', { icon: 3, title: '提示' },
       function (index) { 
@@ -23,7 +23,7 @@ function getUserInfo() {
     //   Authorization:localStorage.getItem('token')
     // },
     success: function (res) { 
-      console.log(res);
+      // console.log(res);
       // console.log(res);
       if (res.status === 1) {
         return layui.layer.msg(res.message)
